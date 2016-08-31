@@ -1,0 +1,4 @@
+D:\git20160719\CyScada-1\CyScada.Common\bin\Release\CyScada.Common.dll
+D:\git20160719\CyScada-1\CyScada.Common\bin\Release\CyScada.Common.pdb
+D:\git20160719\CyScada-1\CyScada.Common\obj\Release\CyScada.Common.dll
+D:\git20160719\CyScada-1\CyScada.Common\obj\Release\CyScada.Common.pdb

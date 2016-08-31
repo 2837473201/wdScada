@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "参数设定";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/Phantom/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/bootstrap-switch/bootstrap-switch.css" />
+
+
+
+}
+
+
+@section FootScript{
+
+    <script src="/js/Phantom/skel.min.js"></script>
+    <script src="/js/Phantom/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/Phantom/main.js"></script>
+    <script src="/js/Services/ViewServices.js"></script>
+    <script src="/js/ParameterSetting/ParameterSetting.js?r=0001"></script>
+    <script>
+        $.get("../api/ParameterSetting2?str=2", function (d) {
+            console.log(d, "dfssdf2222222222222222");
+            var dobj = $.parseJSON(d);
+            console.log(dobj,"4444444444444444444")
+            console.log(dobj.Table[0].Id, "33333333333333333333");
+        });
+    </script>
+
+}
+
+<style>
+			#option span,#option input{
+				font-size: 20px;
+			}
+			#option input{
+				line-height:35px;
+				width:60%;
+				min-width:50px;
+			}
+			.btn {
+				background: rgba(150, 150, 150, 0);
+				border: 1px solid slateblue;
+				color: #4900ff !important;
+                font-weight:bold;
+                background-color:#ffffff !important;
+			}
+			.smallcir {
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+			}
+
+			* {
+				/*background: url(img_b/background3.png) !important;
+				color: white !important;*/
+				line-height:24px;
+			}
+
+			.m-rl {
+				margin-right: 0.5rem;
+				margin-left: 0.5rem;
+			}
+			p{
+				padding: 2rem;
+			}
+			p:hover{
+
+				border-left:2px solid #00bcd4;
+			}
+			@@media only screen and (max-width:768px){
+				.container{
+					padding: 0;
+				}
+				#option p,#option p:hover{
+					padding: 0;
+					border:none;
+				}
+				.col-md-6{
+					padding:0;
+				}
+                .page-content{
+                    padding:0;
+                    margin:0;
+                }
+                .col-xs-12{
+                    padding:0;
+                }
+			}
+			[data-status="0"]{
+				background: red;
+			}
+			[data-status="1"]{
+				background: green;
+			}
+			[data-status="-1"]{
+				background: none;
+			}
+			#option h3{
+				color:#6600cc;
+                font-weight:bold;
+			}
+</style>
+
+
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
+<div class="container">
+    <div class="panel panel-default" id="option">
+        <div class="panel-heading">
+            <h3 class="text-center" style="margin:0">选项</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <h3>主要参数</h3>
+                <p><span data-status="1" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">℃</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+                <p><span data-status="0" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">km</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+                <p><span data-status="-1" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">cm</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+            </div>
+            <div class="col-md-6">
+                <h3>辅助参数</h3>
+                <p><span data-status="1" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">ml</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+                <p><span data-status="0" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">mm</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+                <p><span data-status="1" class="img-circle smallcir"></span><span class="m-rl">当前升起的高度</span><br /><span class="m-rl">13982355</span><span class="m-rl">ms</span><br /><input maxlength="25" class="m-rl" type="text" /><button type="button" class="btn">写入</button></p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+

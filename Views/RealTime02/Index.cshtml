@@ -1,0 +1,948 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+
+
+
+}
+
+
+@section FootScript{
+    @*<script type="text/javascript" src="~/js/RealTime02/realtime02.js"></script>*@
+}
+<style>
+    #village h4 {
+        float: left;
+        display: block;
+        background: green;
+        color: white;
+        border-radius: 10%;
+        height: 27px;
+        line-height: 16px;
+        font-size: 16px;
+        box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+        padding: 5px;
+        text-align: center;
+    }
+
+        #village h4:hover {
+           transform:rotate(-2deg);
+-ms-transform:rotate(-2deg); 	/* IE 9 */
+-moz-transform:rotate(-2deg); 	/* Firefox */
+-webkit-transform:rotate(-2deg); /* Safari 和 Chrome */
+-o-transform:rotate(-2deg); 	/* Opera */
+        }
+
+    #village .col-md-4.col-xs-6:hover {
+        color: hotpink;
+    }
+
+    @@media only screen and (min-width:768px) {
+        #village .border-p {
+            border: 1px solid #DDDDDD;
+        }
+    }
+
+    #village p span:first-child {
+        font-weight: bold;
+    }
+
+    #village .mb5 {
+        margin-bottom: 5px;
+    }
+
+    .scale-title {
+        background: #EF733A !important;
+        transform: rotate(2deg);
+        -ms-transform: rotate(2deg); /* IE 9 */
+        -moz-transform: rotate(2deg); /* Firefox */
+        -webkit-transform: rotate(2deg); /* Safari 和 Chrome */
+        -o-transform: rotate(2deg); /* Opera */
+        z-index: 5;
+    }
+
+    div[id^="wrap"] {
+        margin-bottom: 15px;
+    }
+
+    .infobox > .infobox-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+        .infobox > .infobox-icon > .ace-icon {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+        }
+    /*.PressureDown{
+            width:20px;height:20px;
+            background-image:url(../../js/RealTime02/PressureDown.svg)
+        }*/
+    .svg-Temperature {
+        background-image: url(../../img/TemperatureIn.svg);
+    }
+
+    .svgIcon {
+        width: 40px;
+        height: 40px;
+        background-size: 40px 40px;
+    }
+
+    .infobox {
+        width: auto;
+    }
+
+    .infobox-container {
+        text-align: left;
+    }
+
+    h4 {
+        margin-right: 20px;
+    }
+
+    h5 {
+        color: red;
+    }
+
+    .svg-PressureRight {
+        background-image: url(/Images/Pic/PressureRight.svg);
+    }
+
+    .svgIcon {
+        width: 40px;
+        height: 40px;
+        background-size: 40px 40px;
+    }
+</style>
+<div id="village" class="">
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap01">
+        <h4>裴塘</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number value0001" id="value0001">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number value0002" id="value0002">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0003">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-orange2">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0004">null</span>
+                <div class="infobox-content">土湿4</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue2">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0005">null</span>
+                <div class="infobox-content">土湿5</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0006">null</span>
+                <div class="infobox-content">土湿6</div>
+            </div>
+        </div>
+        <div class="infobox infobox-green">
+            <div class="infobox-icon">
+                <div class="svgIcon svg-Temperature"></div>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0007">null</span>
+                <div class="infobox-content">土温1</div>
+            </div>
+        </div>
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">&nbsp;</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap02">
+        <h4>李家窑</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0008">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0009">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0010">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-orange2">
+            <div class="infobox-icon">
+                <div class="svgIcon svg-Temperature"></div>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0011">null</span>
+                <div class="infobox-content">土温1</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">53&nbsp;km/h</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">东南</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">&nbsp;</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">&nbsp;</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap03">
+        <h4>蒋庄</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number value0001" id="value0012">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number value0002" id="value0013">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0014">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-orange2">
+            <div class="infobox-icon">
+                <div class="svgIcon svg-Temperature"></div>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0015">null</span>
+                <div class="infobox-content">土温1</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">null</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">null</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap04">
+        <h4>袁寨</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0016">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0017">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-red">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0014">null</span>
+                    <div class="infobox-content">空气湿度</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-orange2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0015">null</span>
+                    <div class="infobox-content">大气压</div>
+                </div>
+            </div>*@
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">null</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">null</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap05">
+        <h4>大浮坨</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0018">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0019">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-red">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0014">null</span>
+                    <div class="infobox-content">空气湿度</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-orange2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0015">null</span>
+                    <div class="infobox-content">大气压</div>
+                </div>
+            </div>*@
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">null</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">null</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap06">
+        <h4>庄王村</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0020">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0021">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0022">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-orange2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0015">null</span>
+                    <div class="infobox-content">大气压</div>
+                </div>
+            </div>*@
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">null</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">null</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap07">
+        <h4>夏庄村</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0023">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0024">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0025">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        @*<div col-sm-1="" class="infobox infobox-orange2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0015">null</span>
+                    <div class="infobox-content">大气压</div>
+                </div>
+            </div>*@
+        @*<div col-sm-1="" class="infobox infobox-blue2">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value00012">null</span>
+                    <div class="infobox-content">风速</div>
+                </div>
+            </div>
+            <div col-sm-1="" class="infobox infobox-green">
+                <div class="infobox-icon">
+                    <div class=""></div>
+                </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0006">null</span>
+                    <div class="infobox-content">风向</div>
+                </div>
+            </div>
+            <div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number" id="value0007">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap08">
+        <h4>颍北村</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>1#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0026">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>2#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0027">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>3#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0028">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>4#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0029">null</span>
+                <div class="infobox-content">土湿4</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>5#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0030">null</span>
+                <div class="infobox-content">土湿5</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>6#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0031">null</span>
+                <div class="infobox-content">土湿1</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>7#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0032">null</span>
+                <div class="infobox-content">土湿2</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>8#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0033">null</span>
+                <div class="infobox-content">土湿3</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>9#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0034">null</span>
+                <div class="infobox-content">土湿4</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <h5>10#棚</h5>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0035">null</span>
+                <div class="infobox-content">土湿5</div>
+            </div>
+        </div>
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap18">
+        <h4>裴塘-水源测控系统</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon">
+                <div class="svgIcon svg-PressureRight"></div>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0036">null</span>
+                <div class="infobox-content">压力</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Simple-Water-Icon-3.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0037">null</span>
+                <div class="infobox-content">今天累积流量</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/water-level-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0038">null</span>
+                <div class="infobox-content">液位</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-orange2">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Simple-Water-Icon-3.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0039">null</span>
+                <div class="infobox-content">本月累积流量</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue2">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Simple-Water-Icon-3.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0040">null</span>
+                <div class="infobox-content">瞬时流量</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Simple-Water-Icon-3.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0041">null</span>
+                <div class="infobox-content">瞬时流速</div>
+            </div>
+        </div>
+        <div class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Simple-Water-Icon-3.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0042">null</span>
+                <div class="infobox-content">净累积流量</div>
+            </div>
+        </div>
+        @*<div class="infobox infobox-green">
+                <div class="infobox-icon"> <i class=""></i> </div>
+                <div class="infobox-data">
+                    <span class="infobox-data-number">null</span>
+                    <div class="infobox-content">&nbsp;</div>
+                </div>
+            </div>*@
+    </div>
+    <!--一个村落 end-->
+    <!--一个村落 start-->
+    <div class="col-sm-12 infobox-container" id="wrap19">
+        <h4>信息化中心-气象站</h4>
+        <div col-sm-1="" class="infobox infobox-blue">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0043">null</span>
+                <div class="infobox-content">页湿</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-pink">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/sun-720.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0044">null</span>
+                <div class="infobox-content">光照度</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-red">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Wind_Flag_Storm.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0045">null</span>
+                <div class="infobox-content">风速</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-orange2">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/fengxiang80.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0046">null</span>
+                <div class="infobox-content">风向</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-blue2">
+            <div class="infobox-icon">
+                <div class="svgIcon svg-Temperature"></div>
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0047">null</span>
+                <div class="infobox-content">空温</div>
+            </div>
+        </div>
+        <div col-sm-1="" class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/Humidity-icon.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0048">null</span>
+                <div class="infobox-content">空湿</div>
+            </div>
+        </div>
+        <div class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/icon_CO2_80.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0049">null</span>
+                <div class="infobox-content">CO2 </div>
+            </div>
+        </div>
+        <div class="infobox infobox-green">
+            <div class="infobox-icon" style="width:40px;height:40px;">
+                <img style="display:block;max-width:100%;height:auto;" src="~/Images/Pic/torrential_rain80.png" />
+            </div>
+            <div class="infobox-data">
+                <span class="infobox-data-number" id="value0050">null</span>
+                <div class="infobox-content">雨量</div>
+            </div>
+        </div>
+    </div>
+    <!--一个村落 end-->
+</div>
+
+
+
+<script>
+    !function () {
+        $(function () {
+            var data;
+            initRealTime();
+            function initRealTime() {
+                titleBindStyle();
+            }
+            function G(id) {
+                return document.getElementById(id);
+            }
+            function numTostr(n, s) {
+                if (s == undefined) {
+                    s = "0000";//5个0
+                }
+                s = s + n;
+                s = s.slice(-4, s.length);//截取最后5个字符
+                // console.log(s);
+                return s;
+            }
+            refreshItemValues();
+            setInterval(refreshItemValues, 2000);
+            function refreshItemValues() {
+                $.get('../api/RealTime2', function (result) {
+                    console.log(result, "realtime200000000000000000");
+                    data = result;
+                    renderHtml();
+                    // setTimeout(refreshItemValues, 2000);
+                });
+            }
+            function renderHtml() {
+                var dataUnit = ["%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "°C", "%RH", "%RH", "%RH", "°C", "%RH", "%RH", "%RH", "°C", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "%RH", "MPa", "", "", "", "", "", "", "", "Lux", "m/s", "度", "°C", "%RH", "ppm", "mm"];
+                for (var i = 0; i < 50; i++) {
+                    if (dataUnit[i]) {
+                        G("value" + numTostr(Number(i + 1))).innerHTML = data[i] + "&nbsp;" + dataUnit[i];
+                    }
+                    else {
+                        G("value" + numTostr(Number(i + 1))).innerHTML = data[i] + "&nbsp;";
+                    }
+                }
+                i = 0;
+            }
+            function titleBindStyle() {
+                $("div[id^=\"wrap\"]").mouseover(function (e) {
+                    var id = $(this).attr("id");
+                    $("#" + id + " " + "h4").addClass("scale-title");
+                });
+                $("div[id^=\"wrap\"]").mouseout(function (e) {
+                    var id = $(this).attr("id");
+                    $("#" + id + " " + "h4").removeClass("scale-title");
+                });
+            }
+        });//ready
+    }();//!
+
+</script>
+
+
+
+
+
+

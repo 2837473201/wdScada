@@ -1,0 +1,22 @@
+﻿#page-wrapper {
+    padding: 0;
+}
+.anchorBL{display:none} 
+
+
+
+.BMapLib_sendToPhone {
+    visibility: hidden;
+}
+
+
+
+.BaseInfoName {
+    text-decoration: underline;
+    color: blue;
+}
+
+.BaseInfoName:hover {
+    color: inherit;
+    cursor: pointer;
+}

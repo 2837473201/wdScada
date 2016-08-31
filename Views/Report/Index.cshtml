@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "报表";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+
+    <link href="~/css/History.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/css/bootstrapAddition/bootstrap-additions.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
+
+    <link href="~/js/bj-table-datatables/css/jquery.dataTables.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="~/js/bj-table-datatables/css/buttons.dataTables.css" />
+
+
+}
+
+@section FootScript{
+    @*<script type="text/javascript" src="~/js/SuperAdmin/datetimepicker.min.js"></script>*@
+<script type="text/javascript" src="~/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript" src="~/js/angular-strap/modules/tooltip.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.tpl.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/angular-strap.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/angular-strap.tpl.js"></script>
+    <script type="text/javascript" src="/js/highCharts/highcharts.js"></script>
+    <script type="text/javascript" src="/js/highCharts/highcharts-more.js"></script>
+    <script type="text/javascript" src="/js/highCharts/modules/exporting.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
+    <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
+    <script type="text/javascript" src="~/js/moment-with-locales.js"></script>
+
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/js/Report/Report.js"></script>
+
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/jszip.min.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.html5.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.print.js"></script>
+  <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.flash.js"></script>
+    
+}
+
+<style>
+    .panel-body{
+    padding:30px;
+    }
+  @@media only screen  and (max-width:768px){
+        .panel,.panel-default,.panel-body{
+            margin:0;
+            padding:0;
+            border:none;
+        }
+    }
+</style>
+<div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table id="example" class="display cell-border hover" width="100%"></table>
+        </div>
+       
+    </div>
+   
+</div>
+
+ <script>
+    var sideMenuId = @ViewBag.SideMenuId
+</script>
+
+
+

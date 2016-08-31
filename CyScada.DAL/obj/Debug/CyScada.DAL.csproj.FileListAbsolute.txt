@@ -1,0 +1,15 @@
+D:\git20160719\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.dll
+D:\git20160719\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.pdb
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.dll
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.pdb
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.dll
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.pdb
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.dll
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.pdb
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.dll
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.pdb
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.csprojResolveAssemblyReference.cache
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.dll
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.pdb

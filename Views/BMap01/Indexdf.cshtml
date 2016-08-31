@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+    
+<link rel="stylesheet" href="~/js/bj-bmap/bmap-main.css" />
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=92qyvplqPQ7EPwz8ALCwVASSGGkDuXRG"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+ <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>   
+}
+
+
+@section FootScript{
+   
+
+}
+<style>
+    /*.BMapLib_nav_tab_content td{
+		 		box-sizing: content-box;
+		 	}*/
+    #map{
+        position:relative;
+        z-index:11;
+        width:100%;
+        height:90px;
+    }
+
+  [id^="infowindow"] span.t{
+      color:blue;
+  }
+  .BMapLib_SearchInfoWindow .BMapLib_bubble_close {
+   
+}
+  .BMapLib_SearchInfoWindow .BMapLib_bubble_title {
+      border:none !important;
+      
+    border-top-left-radius:15px;
+      border-top-right-radius:15px;
+      background-color: white;
+}
+  .BMapLib_SearchInfoWindow .BMapLib_bubble_top {
+     /*border-top-left-radius:5%;
+      border-top-right-radius:5%;*/
+     border-bottom:4px dashed #ddd !important;
+      border-radius:15px;
+}
+  .BMapLib_SearchInfoWindow {
+      border:none;
+    border-radius:15px;
+   /*border-bottom-left-radius:5%;
+   border-bottom-right-radius:5%;*/
+     
+}
+</style>
+
+@*<style>
+ @@media screen and (min-width:768px){
+      .companyinfo-ph{
+       display:none;
+   }
+      .companyinfo-pc{
+       display:block;
+    width:150px;
+    height:185px;
+       position:fixed;
+       bottom:1%;
+       left:1%;
+   }
+        .companyinfo-pc:hover{
+       display:block;
+    width:200px;
+    height:245px;
+       position:fixed;
+       bottom:1%;
+       left:1%;
+   }
+     .companyinfo-pc img{
+         display:block;
+         max-width:100%;
+         height:auto;
+     }
+    }
+   @@media screen and (max-width:767px){
+         .companyinfo-pc{
+       display:none;
+   }
+          .companyinfo-ph-i{
+       display:none;
+       
+   }
+     .companyinfo-ph{
+        display:block;
+       width:30px;
+       height:30px;
+       border-radius:50%;
+       position:fixed;
+       top:79%;
+       left:1%;
+       z-index:12;
+      
+   }
+    .companyinfo-ph  p{
+       margin-left:5px;
+     }
+    .companyinfo-ph  p:first-child{
+ margin-top:5px;
+    }
+     .div-center{
+			position:fixed;
+			top:75%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			-ms-transform:translate(-50%,-50%);
+			-moz-transform:translate(-50%,-50%);
+			-webkit-transform:translate(-50%,-50%);
+			-o-transform:translate(-50%,-50%);
+			/*transition:all 2s ease 0s;
+			-moz-transition:all 2s ease 0s;
+			-webkit-transition:all 5s ease 0s;*/
+			animation:toptobottom .5s;
+			-webkit-animation:toptobottom .5s;
+			 width:150px;
+       height:auto;
+       z-index:12;
+			background:white;
+		}
+		@@keyframes toptobottom{
+			from{top:0%}
+			to{top:75%}
+		}
+     
+    }
+</style>*@
+<div>
+    <input class="" style="display:none" type="search" placeholder="" id="search-ctrl" />
+    <div id="map">
+    </div>
+</div>
+<script>
+    var bmapJsobj = document.getElementById("map");
+    var wiw = window.innerWidth;
+    var wih = window.innerHeight;
+    bmapJsobj.style.height = parseFloat(wih - 72) + "px";
+    
+</script>
+@*<div class="companyinfo-ph">
+    <i class="glyphicon glyphicon-phone-alt" style="color:red;"></i>
+    <div class="companyinfo-ph-i div-center">
+        <p style="margin-bottom:0px;"><i class="glyphicon glyphicon-leaf" style="color:green;"></i>&nbsp;&nbsp;<span>河南沃德智能化工程有限公司</span></p>
+        <p style="margin-bottom:0px;"><span style="color:#009688;">地址:</span></i>&nbsp;&nbsp;<span>河南郑州市金水区鑫苑路10号</span></p>
+        <p style="margin-bottom:0px;"><span style="color:#009688;">电话:</span>&nbsp;&nbsp;<span>0371-86233122</span></p>
+        <p><span style="color:#009688;">邮编:</span></i>&nbsp;&nbsp;<span>450000</span></p>
+    </div>
+</div>
+<div class="companyinfo-pc">
+    <img src="~/img/companyinfo.png" />
+</div>*@
+<script type="text/javascript" src="~/js/bj-bmap/bmap-maindf.js"></script>
+@*<script>
+    $(".companyinfo-ph").click(function () {
+        $(".companyinfo-ph-i").toggle();
+    });
+    $(".companyinfo-ph-i").click(function () {
+        $(".companyinfo-ph-i").toggle("fast");
+    });
+</script>*@
+@*<script>
+    document.getElementById("#map").style.height = window.innerHeight;
+    console.log(window.innerHeight);
+</script>*@

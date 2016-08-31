@@ -1,0 +1,60 @@
+.anchorBL span {
+	display: none
+}
+
+.anchorBL img {
+	display: none
+}
+
+.BMap_cpyCtrl {
+	display: none;
+}
+.BMapLib_sendToPhone{
+	display: none;
+}
+.BMapLib_nav{
+	display: none;
+}
+div[title="显示三维地图"] {
+	display: none;
+}
+
+#map {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ccc;
+}
+@media screen and (max-width:768px){
+	#search-ctrl[type="search"]{
+	display: none;
+	}
+	.BMap_noprint.anchorTL{
+		opacity: 0.7;
+	}
+}
+#search-ctrl[type="search"] {
+	position: absolute;
+	right: 0.8rem;
+	top: 0.8rem;
+	margin: 0;
+	padding: 0 5px;
+	opacity: 0.9;
+	z-index: 10;
+	background: white;
+	width:270px;
+	height:38px;
+	font-size: 16px;
+	color: #333;
+	border:2px solid #D43F3A;
+	border-radius: 6px;
+}
+#search-ctrl[type="search"]:after{
+	border:2px solid red;
+}
+#infowindow p>span.t{
+	color:blue;
+	margin-right: 0.5rem;
+	line-height:12px;
+	text-align:center;
+}

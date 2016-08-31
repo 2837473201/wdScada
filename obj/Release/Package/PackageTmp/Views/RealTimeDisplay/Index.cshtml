@@ -1,0 +1,520 @@
+﻿@{
+    ViewBag.Title = "实时工况";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+    <link rel="stylesheet" href="~/css/bj-aui/aui.2.0.css" />
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/Phantom/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/RealTimeDisplay.css" />
+    <link rel="stylesheet" href="/css/bootstrap-switch/bootstrap-switch.css" />
+
+
+
+}
+
+
+@section FootScript{
+
+    <script src="/js/Phantom/skel.min.js"></script>
+    <script src="/js/Phantom/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/Phantom/main.js"></script>
+    <script src="/js/Services/ViewServices.js"></script>
+    <script src="/js/highCharts/highcharts.js"></script>
+    <script src="/js/highCharts/highcharts-more.js"></script>
+    <script src="/js/highCharts/modules/exporting.js"></script>
+    <script src="/js/bootstrap-switch/bootstrap-switch.js"></script>
+    <script src="/js/classyLed/raphael.js"></script>
+    <script src="/js/classyLed/jquery.classyled.js"></script>
+    <script src="/js/RealTimeDisplay/RealTimeDisplay.js?r=0001"></script>
+
+}
+
+<style type="text/css">
+    @@media screen and (max-width: 768px) {
+        .col-lg-12 {
+            padding: 0;
+            width: 100%;
+        }
+
+        .row {
+            padding: 0;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .CyScadaSideItem {
+            font-size: 13px;
+        }
+
+        .col-lg-8, .col-lg-4 {
+            padding: 0;
+        }
+
+        #chart-1 {
+            height: 200px;
+        }
+
+        .aui-list {
+            font-size: 2rem;
+        }
+
+            .aui-list .aui-list-item-inner {
+                min-height: 4rem;
+            }
+
+        button, .aui-btn {
+            font-size: 1.8rem;
+        }
+       
+        .aui-list .aui-list-item-label, .aui-list .aui-list-item-label-icon{
+           min-width:30px;
+           padding:0;
+           width:20%;
+        }
+    }
+</style>
+<style type="text/css">
+   
+    .bj-statusLight {
+        width: 30px;
+        height: 30px;
+        border: 1px red solid;
+        border-radius: 50%;
+    }
+    .bj-statusLight[data-bj-switch="2"] {
+        border: 1px red solid;
+    }
+    .bj-statusLight[data-bj-switch="1"]{
+        border: none;
+        background: green;
+    }
+
+    .bj-statusLight[data-bj-switch="0"] {
+        border: none;
+        background: red;
+    }
+    .bj-switchClick{
+        background:#aaa;
+    }
+   
+</style>
+
+
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
+<div class="container-fluid">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="smaller">当前数据</h4>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="infobox-container">
+                                <div class="row">
+                                    <div class="infobox infobox-green  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-Temperature"></div>
+                                        </div>
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="temp">0</span>
+                                            <div class="infobox-content">当前温度</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-pink">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureUp"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preUp">0</span>
+                                            <div class="infobox-content">上侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-red  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureLeft"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preLeft">0</span>
+                                            <div class="infobox-content">左侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-wood  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureRight"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preRight">0</span>
+                                            <div class="infobox-content">右侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-light-brown  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureDown"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preDown">0</span>
+                                            <div class="infobox-content">下侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-orange  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-TorqueForward"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="torF">0</span>
+                                            <div class="infobox-content">前部扭力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-blue  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-TorqueBackward"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="torB">0</span>
+                                            <div class="infobox-content">后部扭力</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="infobox infobox-green  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-Temperature"></div>
+                                        </div>
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="temp1">0</span>
+                                            <div class="infobox-content">当前温度</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-pink">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureUp"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preUp1">0</span>
+                                            <div class="infobox-content">上侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-red  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureLeft"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preLeft1">0</span>
+                                            <div class="infobox-content">左侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-wood  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureRight"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preRight1">0</span>
+                                            <div class="infobox-content">右侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-light-brown  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-PressureDown"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="preDown1">0</span>
+                                            <div class="infobox-content">下侧压力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-orange  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-TorqueForward"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="torF1">0</span>
+                                            <div class="infobox-content">前部扭力</div>
+                                        </div>
+                                    </div>
+                                    <div class="infobox infobox-blue  ">
+                                        <div class="infobox-icon">
+                                            <div class="svgIcon svg-TorqueBackward"></div>
+                                        </div>
+
+                                        <div class="infobox-data">
+                                            <span class="infobox-data-number" id="torB1">0</span>
+                                            <div class="infobox-content">后部扭力</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="smaller">实时温度</h4>
+                    </div>
+                    <div class="widget-body">
+                        <div class="widget-main" id="chart-1-box">
+                            <div id="chart-1"></div>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">实时压力</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div id="Chart2"></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div id="Chart5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">实时扭力</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-12"><div id="Chart3"></div></div>
+                                <div class="col-lg-12"><div id="Chart4"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="smaller">设备开关</h4>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="col-lg-4" style="margin-top:20px;">
+                            <div class="aui-content aui-margin-b-15">
+                                <ul class="aui-list aui-form-list">
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-1"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-1">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-1" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-2"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-2">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-2" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-3"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-3">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-3" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-4"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-4">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-4" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-5"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-5">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-5" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4" style="margin-top:20px;">
+                            <div class="aui-content aui-margin-b-15">
+                                <ul class="aui-list aui-form-list">
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-6"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-6">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-6" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-7"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-7">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-7" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-8"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-8">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-8" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-9"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-9">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-9" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-10"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-10">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-10" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4" style="margin-top:20px;">
+                            <div class="aui-content aui-margin-b-15">
+                                <ul class="aui-list aui-form-list">
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-11"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-11">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-11" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-12"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-12">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-12" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-13"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-13">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-13" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-14"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-14">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-14" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-15"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-15">
+                                                Switch
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-15" onclick="setValue(this)">开/关</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,34 @@
+/*水平选项卡start*/
+			.nav-tabs>li.active>a,
+			.nav-tabs>li.active>a:focus {
+				border: none;
+			}
+			
+			#tabs-h .nav-tabs li.active {
+				border: none;
+				border-bottom: 4px solid #ffc107;
+			}
+			
+			#tabs-h .nav-tabs li a {
+				color: black
+			}
+			/*水平选项卡end*/
+			/*垂直选项卡start*/
+			
+			#tabs-v ul,
+			#tabs-v .tab-content {
+				float: left;
+			}
+			
+			#tabs-v .tab-pane {
+				/*padding-left: 2rem;*/
+			}
+			
+			#tabs-v ul li.active {
+				border-left: 4px solid #ffc107;
+			}
+			/*垂直选项卡end*/
+            .tab-content{
+                margin:0px;
+                padding:0px;
+            }

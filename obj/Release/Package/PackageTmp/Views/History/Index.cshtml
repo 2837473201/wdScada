@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "历史查询";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+
+    <link href="~/css/History.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/css/bootstrapAddition/bootstrap-additions.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
+
+
+}
+
+@section FootScript{
+    @*<script type="text/javascript" src="~/js/SuperAdmin/datetimepicker.min.js"></script>*@
+<script type="text/javascript" src="~/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript" src="~/js/angular-strap/modules/tooltip.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.tpl.min.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/angular-strap.js"></script>
+    <script type="text/javascript" src="~/js/angular-strap/angular-strap.tpl.js"></script>
+    <script type="text/javascript" src="/js/highCharts/highcharts.js"></script>
+    <script type="text/javascript" src="/js/highCharts/highcharts-more.js"></script>
+    <script type="text/javascript" src="/js/highCharts/modules/exporting.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
+    <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
+<script type="text/javascript" src="~/js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="~/js/History/History.js?r=20160531009"></script>
+  
+    
+}
+<style>
+    @@media only screen and (max-width:768px){
+         .col-lg-12,.container-fluid,.col-xs-12{
+           padding:0;width: 100%;
+        }
+        #Chart{
+       height:200px;
+       
+        }
+    }
+   
+</style>
+
+<div ng-app="History" id="History">
+    <div ng-controller="HistoryController">
+        <div class="container-fluid ">
+            <div class="col-lg-12">
+                <div class="widget-main">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="dtStartDate"><h4>时间:&nbsp;&nbsp;</h4></label>
+                            <input id="dtStartDate" class="" data-language="zh-CN" data-min-view="1" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" type="text">&nbsp;至&nbsp;
+                            <input id="dtEndDate" class="" data-language="zh-CN" data-min-view="1" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" type="text">
+                            <div style="display:none;">
+                                <label for="selMachine">设备名称</label>
+                                <select class="CyScadaSelect2 form-control" id="selMachine">
+                                    <option value="" selected="selected">全部</option>
+                                </select>
+                                <label for="selMachineTags">点名称</label>
+                                <select class="CyScadaSelect2 form-control" id="selMachineTags">
+                                    <option value="全部" selected="selected">全部</option>
+                                </select>
+                            </div>
+                            <button class="btn  btn-primary CyScadaBtn" ng-click="Query()" id="btnQuery">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class=" smaller"><i class="icon-list"></i>查询结果</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main" style="margin:0;padding:0">
+                            <table id="ListTable" data-toggle="table" data-striped="true"
+                                   data-show-pagination-switch="false"
+                                   data-pagination="true"
+                                   data-page-list="[10, 25, 50, 100, ALL]"
+                                   data-id-field="Id"
+                                   data-locale="zh-CN">
+                                <thead class="tableHeader">
+                                    <tr>
+                                        <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                        <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
+                                        <th data-field="Company" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">公司名称</th>
+                                        <th data-field="WorkSite" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">工地</th>
+                                        <th data-field="MachineName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">设备名称</th>
+                                        <th data-field="TagName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">点名称</th>
+                                        <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">值</th>
+                                        <th data-field="TimeStamp" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="widget-box">
+                        <div class="widget-header"><h4 class=" smaller"><i class="icon-bar-chart"></i>图形展示</h4></div>
+                        <div class="widget-body">
+                            <div class="widget-main" style="margin:0;padding0;">
+                                <div id="Chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var sideMenuId = @ViewBag.SideMenuId
+</script>
+
+
+

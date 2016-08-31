@@ -1,0 +1,5 @@
+D:\git20160719\CyScada-1\CyScada.DAL\bin\Release\CyScada.DAL.dll
+D:\git20160719\CyScada-1\CyScada.DAL\bin\Release\CyScada.DAL.pdb
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Release\CyScada.DAL.dll
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Release\CyScada.DAL.pdb
+D:\git20160719\CyScada-1\CyScada.DAL\obj\Release\CyScada.DAL.csprojResolveAssemblyReference.cache

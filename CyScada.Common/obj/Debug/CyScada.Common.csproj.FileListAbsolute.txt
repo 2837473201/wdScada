@@ -1,0 +1,14 @@
+D:\git20160719\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.dll
+D:\git20160719\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.pdb
+D:\git20160719\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.dll
+D:\git20160719\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.pdb
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.dll
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.pdb
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.csprojResolveAssemblyReference.cache
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.dll
+C:\Users\Ryan\Desktop\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.pdb
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.dll
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.pdb
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.csprojResolveAssemblyReference.cache
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.dll
+D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.pdb

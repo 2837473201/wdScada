@@ -1,0 +1,4 @@
+D:\git20160719\CyScada-1\CyScada.Model\bin\Release\CyScada.Model.dll
+D:\git20160719\CyScada-1\CyScada.Model\bin\Release\CyScada.Model.pdb
+D:\git20160719\CyScada-1\CyScada.Model\obj\Release\CyScada.Model.dll
+D:\git20160719\CyScada-1\CyScada.Model\obj\Release\CyScada.Model.pdb

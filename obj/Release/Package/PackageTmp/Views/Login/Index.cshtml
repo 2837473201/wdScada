@@ -1,0 +1,165 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script type="text/javascript" src="~/js/jquery-1.12.2.min.js"></script>
+    <link href="~/css/Login.css" rel="stylesheet" />
+
+    <style>
+      	.block-center-h{
+			position:fixed;
+			left:50%;
+			transform:translate(-50%,0);
+			-ms-transform:translate(-50%,0);
+			-moz-transform:translate(-50%,0);
+			-webkit-transform:translate(-50%,0);
+			-o-transform:translate(-50%,0);
+			/*transition:all 2s ease 0s;
+			-moz-transition:all 2s ease 0s;
+			-webkit-transition:all 5s ease 0s;*/
+			animation:toptobottom .5s;
+			-webkit-animation:toptobottom .5s;
+			z-index:2;
+		}
+		.block-center-v{
+			position:fixed;
+			top:50%;
+			transform:translate(0,-50%);
+			-ms-transform:translate(0,-50%);
+			-moz-transform:translate(0,-50%);
+			-webkit-transform:translate(0,-50%);
+			-o-transform:translate(0,-50%);
+			/*transition:all 2s ease 0s;
+			-moz-transition:all 2s ease 0s;
+			-webkit-transition:all 5s ease 0s;*/
+			animation:toptobottom .5s;
+			-webkit-animation:toptobottom .5s;
+			z-index:2;
+		}
+		.block-center{
+			position:fixed;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			-ms-transform:translate(-50%,-50%);
+			-moz-transform:translate(-50%,-50%);
+			-webkit-transform:translate(-50%,-50%);
+			-o-transform:translate(-50%,-50%);
+			/*transition:all 2s ease 0s;
+			-moz-transition:all 2s ease 0s;
+			-webkit-transition:all 5s ease 0s;*/
+			animation:toptobottom .5s;
+			-webkit-animation:toptobottom .5s;
+		}
+		.inpu{
+			width:230px;
+			height:38px;
+			display: block;
+			margin:auto auto 30px auto;
+		}
+		.inpu-posi{
+			position:absolute;
+			margin:110px auto 0px 126px;
+		}
+		
+.ui-button:hover {
+    text-decoration: none;
+    background-color: #00a3d2;
+    border-color: #00a3d2;
+}
+
+.ui-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 130px;
+    padding: 0 20px;
+    margin-left: 58px;
+    font-size: 18px;
+    line-height: 36px;
+    height: 40px;
+    color: #fff;
+    font-weight: 400;
+    font-weight: bold\0;
+    _font-weight: bold;
+    border: 0;
+    outline: 0;
+    background: #0AE;
+    -webkit-appearance: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+body{
+    background:url(img/loginbg.png);
+    width:100%;
+    height:100%;
+}
+    </style>
+
+</head>
+<body>
+    <div class="block-center login-pc" style="display:none;background:url(img/login0003.png) no-repeat;width:502px;height:337px;">
+        <form action="" method="post" class="inpu-posi">
+            <input class="inpu" type="text" name="UserName" placeholder="请输入用户名" required="required" />
+            <input class="inpu" type="password" name="Password" placeholder="请输入密码" required="required" />
+            <input type="submit" value="登 录" class="ui-button" tabindex="4" />
+            <span style="color:red">@ViewBag.ErrorInfo</span>
+        </form>
+    </div>
+    <div class="login login-ph" style="display:none;">
+       @* <link href="~/css/Login.css" rel="stylesheet" />*@
+        <h1>欢迎登录</h1>
+        <form method="post">
+            <input type="text" name="UserName" placeholder="请输入用户名" required="required" />
+            <input type="password" name="Password" placeholder="请输入密码" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">登录</button>
+            <span style="color:red">@ViewBag.ErrorInfo</span>
+        </form>
+    </div>
+    <script>
+    // $(document).ready(function () {
+    getwindowinnerWidth();
+    function getwindowinnerWidth() {
+        var wiw = window.innerWidth;
+        if (wiw < 768) {
+            appendCss("css/Login.css");
+            $(".login-ph").css("display", "block");
+        }
+        else {
+            removeCss("css/Login.css");
+            $(".login-pc").css("display", "block");
+        }
+    }
+    function appendCss(href) {
+        var linkArr = document.getElementsByTagName("link");
+        for (var i = 0; i < linkArr.length; i++) {
+            if (linkArr[i] && linkArr[i].getAttribute("rel") && linkArr[i].getAttribute("href").indexOf("href")) {
+                return false;
+            }
+        }//for i
+        var link = document.createElement("link");
+        link.setAttribute("rel", "stylesheet");
+        link.setAttribute("href", href);
+        document.getElementsByTagName("head")[0].appendChild(link);
+    }
+    function removeCss(href) {
+        var linkArr = document.getElementsByTagName("link");
+        for (var i = 0; i < linkArr.length; i++) {
+            if (linkArr[i] && linkArr[i].getAttribute("rel") && linkArr[i].getAttribute("href").indexOf(href)) {
+                linkArr[i].parentNode.removeChild(linkArr[i]);
+            }
+        }//for i
+    }
+    // });//ready
+    </script>
+
+</body>
+</html>

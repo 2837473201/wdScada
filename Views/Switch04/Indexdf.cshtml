@@ -1,0 +1,236 @@
+﻿@{
+    ViewBag.Title = "实时工况";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+    <link rel="stylesheet" href="~/css/bj-aui/aui.2.0.css" />
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
+  
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/RealTimeDisplay.css" />
+    <link rel="stylesheet" href="/css/bootstrap-switch/bootstrap-switch.css" />
+
+
+
+}
+
+
+@section FootScript{
+    <script src="/js/RealTimeDisplay/RealTimeDisplay.js?r=0001">
+    </script>
+
+}
+
+<style type="text/css">
+    @@media screen and (max-width: 768px) {
+    .col-lg-12 {
+    padding: 0;
+    width: 100%;
+    }
+
+    .row {
+    padding: 0;
+    }
+
+    .container-fluid {
+    padding: 0;
+    }
+
+    .CyScadaSideItem {
+    font-size: 13px;
+    }
+
+    .col-lg-8, .col-lg-4 {
+    padding: 0;
+    }
+
+    #chart-1 {
+    height: 200px;
+    }
+
+    .aui-list {
+    font-size: 2rem;
+    }
+
+    .aui-list .aui-list-item-inner {
+    min-height: 4rem;
+    }
+
+    button, .aui-btn {
+    font-size: 1.8rem;
+    }
+
+    .aui-list .aui-list-item-label, .aui-list .aui-list-item-label-icon{
+    min-width:30px;
+    padding:0;
+    width:20%;
+    }
+    }
+</style>
+<style type="text/css">
+
+    .bj-statusLight {
+    width: 30px;
+    height: 30px;
+    border: 1px red solid;
+    border-radius: 50%;
+    }
+    .bj-statusLight[data-bj-switch="2"] {
+    border: 1px red solid;
+    }
+    .bj-statusLight[data-bj-switch="1"]{
+    border: none;
+    background: green;
+    }
+
+    .bj-statusLight[data-bj-switch="0"] {
+    border: none;
+    background: red;
+    }
+    .bj-switchClick{
+    background:#aaa;
+    }
+
+</style>
+
+
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
+<div class="container-fluid">
+    <div class="col-lg-12">
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="smaller">设备开关</h4>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="col-lg-4" style="margin-top:20px;">
+                            <div class="aui-content aui-margin-b-15">
+                                <ul class="aui-list aui-form-list">
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-1"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-1">
+                                               电磁阀1
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-1" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-2"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-2">
+                                                电磁阀2
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-2" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-3"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-3">
+                                                电磁阀3
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-3" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-4"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-4">
+                                                电磁阀4
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-4" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-5"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-5">
+                                                电磁阀5
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-5" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4" style="margin-top:20px;">
+                            <div class="aui-content aui-margin-b-15">
+                                <ul class="aui-list aui-form-list">
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-6"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-6">
+                                                电磁阀6
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-6" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-7"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-7">
+                                                电磁阀7
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-7" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                    <li class="aui-list-item">
+                                        <div class="aui-list-item-inner">
+                                            <div class="aui-list-item-label">
+                                                <div class="bj-statusLight" id="switchLight-8"></div>
+                                            </div>
+                                            <div class=" aui-list-item-input" id="switchName-8">
+                                                电磁阀8
+                                            </div>
+                                            <div class="aui-btn aui-btn-sm" id="switch-8" onclick="">开/关</div>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $.post('../api/RealTime2', { '': [48,0] }, function (d) {
+        console.log(d,"==0发送成功返回信息");
+        //  obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value = 1;
+        // $('#' + currentLightId).attr('data-bj-switch', 1);//可能需要
+        switchLock = 1;
+    }, function (error) {
+        alert(error);
+    });
+
+</script>
+
+
+

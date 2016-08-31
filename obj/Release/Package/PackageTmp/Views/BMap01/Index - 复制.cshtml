@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+<script>
+    var meta = document.createElement("meta");
+    meta.name = "viewport";
+    meta.content = "initial-scale=1.0, user-scalable=no";
+    document.getElementsByTagName("head")[0].appendChild(meta);
+</script>
+
+   @* <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />*@
+<link rel="stylesheet" href="~/js/bj-bmap/bmap-main.css" />
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=92qyvplqPQ7EPwz8ALCwVASSGGkDuXRG"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+  
+    
+}
+
+
+@section FootScript{
+   
+
+}
+<style>
+    .BMapLib_nav_tab_content td{
+		 		box-sizing: content-box;
+		 	}
+    #map{
+        position:absolute;
+        z-index:9;
+        width:100%;
+       height:850px;
+    }
+    @@media only screen and (max-width:768px){
+      #map{
+      width:100%;
+      height:380px;
+        }
+  
+    }
+</style>
+
+<div class="">
+    <input type="search" placeholder="" id="search-ctrl" />
+    <div id="map">
+    </div>
+</div>
+
+<script type="text/javascript" src="~/js/bj-bmap/bmap-main.js"></script>
+
+@*<script>
+    document.getElementById("#map").style.height = window.innerHeight;
+    console.log(window.innerHeight);
+</script>*@

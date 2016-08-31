@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutNew4.cshtml";
+}
+
+@section HeadSection{
+
+    <link href="~/css/BaseInfo.css" rel="stylesheet" />
+}
+
+@section FootScript{
+
+    <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250002"></script>
+    <script type="text/javascript" src="~/js/BaseInfo/BaseInfo.js?r=20160530001"></script>
+
+}
+
+
+
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
+<div ng-app="BaseInfo" id="BaseInfo">
+    <div ng-controller="BaseInfoController">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="smaller">图示</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <img src="{{Info.Pic}}" class="w-100 Pic" alt="">
+                            </div>
+                            <hr />
+                            <div>
+                                <div class="p-5 m-t-15" ng-bind-template="{{Info.Description}}">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <div class="col-md-3">
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="smaller">设备信息</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <table class="table table-hover table-striped">
+                                    <tr>
+                                        <td class="listLabel">名称</td>
+                                        <td ng-bind-template="{{Info.Name}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">类型</td>
+                                        <td ng-bind-template="{{Info.MachineType}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">当前状态</td>
+                                        <td ng-bind-template="{{Info.Status}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">所属公司</td>
+                                        <td ng-bind-template="{{Info.Company}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">所属工地</td>
+                                        <td ng-bind-template="{{Info.WorkSite}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">所在经度</td>
+                                        <td ng-bind-template="{{Info.Longitude}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">所在维度</td>
+                                        <td ng-bind-template="{{Info.Latitude}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">仪表IMEI</td>
+                                        <td ng-bind-template="{{Info.IMEI}}" class="listValue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="listLabel">仪表CCID</td>
+                                        <td ng-bind-template="{{Info.CCID}}" class="listValue"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var sideMenuId = @ViewBag.SideMenuId
+</script>

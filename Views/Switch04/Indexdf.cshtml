@@ -18,8 +18,7 @@
 
 
 @section FootScript{
-    <script src="/js/RealTimeDisplay/RealTimeDisplay.js?r=0001">
-    </script>
+  
 
 }
 
@@ -221,14 +220,64 @@
     </div>
 </div>
 <script>
-    $.post('../api/RealTime2', { '': [48,0] }, function (d) {
-        console.log(d,"==0发送成功返回信息");
-        //  obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value = 1;
-        // $('#' + currentLightId).attr('data-bj-switch', 1);//可能需要
-        switchLock = 1;
-    }, function (error) {
-        alert(error);
-    });
+    $(document).ready(function () {
+        function G(id) {
+            return document.getElementById(id);
+        }
+        //50-57;
+        setInterval(function () {
+            initSetValue();
+        },1000);
+        initSetValue();
+        function initSetValue() {
+            $.get("../api/RealTime2", function (result) {
+                var dataArr = result;
+                for (var j = 0; j < 8; j++) {
+                    $("#switchLight-" + (j + 1)).attr("data-bj-switch", (dataArr[j + 50]));
+                    if (dataArr[j + 50] == 0) {
+                        $("#switch-" + (j + 1)).text("关闭");
+                        $("#switchLight-" + (j+ 1)).attr("data-bj-switch", "0");
+                    }
+                    if (dataArr[j + 50] == 1) {
+                        $("#switch-" + (j + 1)).text("打开");
+                        $("#switchLight-" + (j + 1)).attr("data-bj-switch", "1");
+                    }
+                }
+
+
+            });//$.get();
+        }
+
+        for (var i = 0; i < 8; i++) {
+            (function (a) {
+                G("switch-" + (a + 1)).onclick = function () {
+
+                    var curStatus = $("#switchLight-" + (a + 1)).attr("data-bj-switch");
+                    if (curStatus == "0") {
+                        $.post('../api/RealTime2', { '': [parseInt(a + 50), 1] }, function (d) {
+                            console.log("正在打开...");
+                           // $("#switchLight-" + (a + 1)).attr("data-bj-switch", "1");
+                           // $("#switch-" + (a + 1)).text("打开");
+                        }, function (error) {
+                            alert(error);
+                        });
+                    }
+                    if (curStatus == "1") {
+                        $.post('../api/RealTime2', { '': [parseInt(a + 50), 0] }, function (d) {
+                            console.log("正在关闭...");
+                           // $("#switchLight-" + (a + 1)).attr("data-bj-switch", "0");
+                           // $("#switch-" + (a + 1)).text("关闭");
+                        }, function (error) {
+                            alert(error);
+                        });
+                    }
+
+                }
+            })(i);
+
+        }//for i
+    });//ready
+   
 
 </script>
 

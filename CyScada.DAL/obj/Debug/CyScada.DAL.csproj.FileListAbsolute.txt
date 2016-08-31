@@ -13,3 +13,8 @@ D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\bin\Debug\CyScada.DAL.pdb
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.csprojResolveAssemblyReference.cache
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.dll
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.DAL\obj\Debug\CyScada.DAL.pdb
+D:\github-bj\wdScada\CyScada.DAL\bin\Debug\CyScada.DAL.dll
+D:\github-bj\wdScada\CyScada.DAL\bin\Debug\CyScada.DAL.pdb
+D:\github-bj\wdScada\CyScada.DAL\obj\Debug\CyScada.DAL.csprojResolveAssemblyReference.cache
+D:\github-bj\wdScada\CyScada.DAL\obj\Debug\CyScada.DAL.dll
+D:\github-bj\wdScada\CyScada.DAL\obj\Debug\CyScada.DAL.pdb

@@ -37,3 +37,16 @@ D:\bj-github\CyScada-1from90\CyScada-1\CyScada.BLL\bin\Debug\Newtonsoft.Json.xml
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.BLL\obj\Debug\CyScada.BLL.csprojResolveAssemblyReference.cache
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.BLL\obj\Debug\CyScada.BLL.dll
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.BLL\obj\Debug\CyScada.BLL.pdb
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.BLL.dll
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.BLL.pdb
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.Common.dll
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.DAL.dll
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.Model.dll
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\Newtonsoft.Json.dll
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.Common.pdb
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.DAL.pdb
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\CyScada.Model.pdb
+D:\github-bj\wdScada\CyScada.BLL\bin\Debug\Newtonsoft.Json.xml
+D:\github-bj\wdScada\CyScada.BLL\obj\Debug\CyScada.BLL.csprojResolveAssemblyReference.cache
+D:\github-bj\wdScada\CyScada.BLL\obj\Debug\CyScada.BLL.dll
+D:\github-bj\wdScada\CyScada.BLL\obj\Debug\CyScada.BLL.pdb

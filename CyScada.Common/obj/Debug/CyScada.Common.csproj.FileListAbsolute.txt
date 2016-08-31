@@ -12,3 +12,8 @@ D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\bin\Debug\CyScada.Common.p
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.csprojResolveAssemblyReference.cache
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.dll
 D:\bj-github\CyScada-1from90\CyScada-1\CyScada.Common\obj\Debug\CyScada.Common.pdb
+D:\github-bj\wdScada\CyScada.Common\bin\Debug\CyScada.Common.dll
+D:\github-bj\wdScada\CyScada.Common\bin\Debug\CyScada.Common.pdb
+D:\github-bj\wdScada\CyScada.Common\obj\Debug\CyScada.Common.csprojResolveAssemblyReference.cache
+D:\github-bj\wdScada\CyScada.Common\obj\Debug\CyScada.Common.dll
+D:\github-bj\wdScada\CyScada.Common\obj\Debug\CyScada.Common.pdb

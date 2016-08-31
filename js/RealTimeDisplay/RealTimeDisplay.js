@@ -13,33 +13,7 @@ var chart5;
 var tagList = [];
 var machineInfo = {};
 var switchLock = 1;
-$(document).ready(function () {
-    initSwitch();
-    function initSwitch() {
-        firstInit();
 
-    }//initSwitch
-    function firstInit() {
-        var switchFnArr = [];
-        for (var i = 0; i < 8; i++) {
-            $("#switchLight-" + (i + 1)).attr("data-bj-switch", "1");
-            $("#switch-" + (i + 1)).text("关闭");
-            switchFnArr[i] =( function (a) {
-                $("#switch-" + (a + 1)).click(function () {
-                    var switchStatus=$("#switchLight-" + (a + 1)).attr("data-bj-switch");
-                    if (switchStatus == "1") {
-                        $("#switchLight-" + (a + 1)).attr("data-bj-switch", "0");
-                        $(this).text("打开");
-                    }
-                    if (switchStatus == "0") {
-                        $("#switchLight-" + (a + 1)).attr("data-bj-switch", "1");
-                        $(this).text("关闭");
-                    }
-                });
-            })(i)
-        }
-    }
-});//ready
 
 
 

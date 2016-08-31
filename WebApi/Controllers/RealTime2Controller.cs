@@ -40,6 +40,11 @@ namespace CyScada.Web.WebApi.Controllers
             "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40045","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40046",
             "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40047","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40048",
             "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40049","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40050",
+              "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40051","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40052",
+            "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40053","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40054",
+            "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40055","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40056",
+            "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40057","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40058",
+            "OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40059","OPC://127.0.0.1/KEPware.KEPServerEx.V4/WD.Device1.40060",
         };
 
         
